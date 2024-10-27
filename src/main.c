@@ -3,16 +3,13 @@
 #include <stdio.h>
 
 int main() {
-    // Initialize GLFW
     if (!glfwInit()) {
         printf("Failed to initialize GLFW\n");
         return -1;
     }
 
-    // Tell GLFW to not create an OpenGL context
     glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
 
-    // Create a GLFW window
     GLFWwindow* window = glfwCreateWindow(800, 600, "Vulkan Window", NULL, NULL);
     if (!window) {
         printf("Failed to create GLFW window\n");
@@ -20,7 +17,6 @@ int main() {
         return -1;
     }
 
-    // Initialize Vulkan instance (similar to the previous example)
     VkInstance instance;
     VkApplicationInfo appInfo = {0};
     appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
@@ -39,13 +35,10 @@ int main() {
         return -1;
     }
 
-    // Main rendering loop
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
-        // Vulkan rendering code goes here
     }
 
-    // Cleanup
     vkDestroyInstance(instance, NULL);
     glfwDestroyWindow(window);
     glfwTerminate();

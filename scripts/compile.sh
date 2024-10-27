@@ -43,6 +43,10 @@ if check_dependencies; then
 
     mkdir -p "$BIN_FILES_LOCATION"
 
+    # Clear the bin directory
+    echo "Clearing the bin directory..."
+    rm -rf "$BIN_FILES_LOCATION"/*
+
     # Compile the source file
     echo "Compiling program with flags: ${FLAGS[@]}"
     comp_time gcc "$SOURCE_FILES_LOCATION/$SOURCE_FILE" -o "$BIN_FILES_LOCATION/$OUTPUT_BINARY" "$LIB_FILES_LOCATION/"*.h "${FLAGS[@]}"
