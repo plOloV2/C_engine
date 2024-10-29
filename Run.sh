@@ -3,17 +3,9 @@
 errors() {
     local error_code=$?
     if [ $error_code -eq 0 ]; then
-       echo -e "\nExecuted succesfuly"
+        echo -e "\nExecuted succesfuly"
     else
-         if [ $error_code -eq 1 ]; then
-            echo "Error: argc not equal 2. Program returned with code 1."
-        elif [ $error_code -eq 2 ]; then
-            echo "Error: PrepareData() error. Program returned with code 2."
-        elif [ $error_code -eq 3 ]; then
-            echo "Error: CalculateStartDist() failed. Program returned with code 3."
-        elif [ $error_code -eq 4 ]; then
-            echo "Error: PrepareThreads() error. Program returned with code 4."
-        fi
+        echo "Some error ocured..."
     fi
 }
 
